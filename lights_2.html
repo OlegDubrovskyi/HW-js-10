@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Светофор #2</title>
+    <style>
+        .border {
+            border: solid black 3px;
+            padding: 20px;
+        }
+
+        .inputzone {
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+
+        .light {
+            border: solid black 1px;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Светофор Nightmare Edition</h1>
+
+
+    <h2>...или так верстают только...</h2>
+
+    <div class="border">
+        <div class="inputzone">
+            <button onclick="processButtonClick(1)">Click me
+                <div class="light" style="background-color: red;"></div>
+            </button>
+        </div>
+        <div class="inputzone">
+            <button onclick="processButtonClick(2)">Click me</button>
+            <div><span><div>
+                <!-- оторвался от души с тегами -->
+                <div class="light" style="background-color: yellow;"></div>
+            </div></span>
+            </div>
+        </div>
+        <div class="inputzone"> <span><button onclick="processButtonClick(3)">Click me</button></span>
+
+            <div class="light" style="background-color: green;"></div>
+        </div>
+    </div>
+
+
+    <script>
+        /*** Сервисный код. Пока в нем можно не разбираться ***/
+        /*document.addEventListener('click', function (evt) {
+            if (evt.target.nodeName.toLowerCase() === 'button') {
+                processButtonClick(evt.target);
+                console.log(evt.target);
+            }
+        });*/
+
+        function processButtonClick (element) {
+            document.querySelector(".inputzone:nth-child("+element+") .light").style.backgroundColor = "#0000FF";
+        }
+    </script>
+</body>
+</html>
