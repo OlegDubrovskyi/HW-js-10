@@ -48,6 +48,22 @@
             }
         });
 
+        var counter = -1;
+        document.addEventListener('click', function (evt) {
+            var arr = document.getElementsByClassName("light");
+            if (evt.target.nodeName.toLowerCase() === 'button') {
+                for(var i = 0; i < arr.length; i++){
+                    if (document.querySelector(".inputzone:nth-child("+(i+1)+") .light").style.backgroundColor === "rgb(0, 0, 255)") {
+                        counter = counter+1;
+                    }
+                     if(counter === 3){
+                        alert("Готово!!!");
+                    }
+                }
+                
+            }
+        });
+
         function processButtonClick (element) {
             element.nextElementSibling.style.backgroundColor = "#0000FF";
         }
