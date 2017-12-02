@@ -42,25 +42,24 @@
 
     <script>
         /*** Сервисный код. Пока в нем можно не разбираться ***/
+
+        var counter = -1;
+        var marker = 999;
         document.addEventListener('click', function (evt) {
             if (evt.target.nodeName.toLowerCase() === 'button') {
                 processButtonClick(evt.target);
-            }
-        });
-
-        var counter = -1;
-        document.addEventListener('click', function (evt) {
-            var arr = document.getElementsByClassName("light");
-            if (evt.target.nodeName.toLowerCase() === 'button') {
+                var arr = document.getElementsByClassName("light");
                 for(var i = 0; i < arr.length; i++){
-                    if (document.querySelector(".inputzone:nth-child("+(i+1)+") .light").style.backgroundColor === "rgb(0, 0, 255)") {
+                if (evt.target.nodeName.toLowerCase() === 'button') {
+                    if (marker!==i && document.querySelector(".inputzone:nth-child("+(i+1)+") .light").style.backgroundColor === "rgb(0, 0, 255)") { 
                         counter = counter+1;
+                        marker = i;
                     }
                      if(counter === 3){
                         alert("Готово!!!");
                     }
-                }
-                
+                } 
+            }
             }
         });
 
