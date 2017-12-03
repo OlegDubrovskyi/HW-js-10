@@ -58,8 +58,20 @@
             }
         });*/
 
+        var counter = [];
+        
         function processButtonClick (element) {
             document.querySelector(".inputzone:nth-child("+element+") .light").style.backgroundColor = "#0000FF";
+                if(counter[counter.length-1] !== element) {
+                    counter.push(element);
+                }
+                counter.sort();
+                for (var i = counter.length - 1; i > 0; i--) {
+                    if (counter[i] == counter[i - 1]) counter.splice( i, 1);
+                }
+                if(counter.length ===3) {
+                    alert("Готово");
+                }
         }
     </script>
 </body>
